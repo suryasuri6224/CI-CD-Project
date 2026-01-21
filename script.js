@@ -63,3 +63,7 @@ function checkmobile() {
   //if everything is fine, clear the error
   errorDiv.innerText = "";
 }
+// At the bottom of script.js
+if (typeof module !== "undefined") {
+  module.exports = { validateForm, checkmobile };
+}
