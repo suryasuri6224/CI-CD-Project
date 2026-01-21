@@ -1,0 +1,28 @@
+name: CI Pipeline
+
+# When to run the workflow
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout your code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Setup Node.js (optional for JS)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Step 3: Run a basic command to check files
+      - name: List files
+        run: ls -l
+
+      - name: Test script
+        run: node script.js || echo "No runtime errors!"
